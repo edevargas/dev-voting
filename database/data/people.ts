@@ -1,4 +1,4 @@
-const data: Record<TPersonId, TPerson> = {
+const people: Record<TPersonId, TPerson> = {
     '2zd33b8c': {
         name: 'Pope Francis',
         id: '2zd33b8c',
@@ -47,4 +47,4 @@ const data: Record<TPersonId, TPerson> = {
 
 }
 
-export default data
+export default people

@@ -1,21 +1,20 @@
-import allData from './data'
+import people from './data/people'
 
-class Database {
-    constructor() {
-    }
+class PeopleDB {
+    constructor() {}
 
     async getAll(): Promise<TPerson[]> {
-        const asArray = Object.values(allData)
+        const asArray = Object.values(people)
         await randomDelay()
         return asArray
     }
 
     async getById(id: string): Promise<TPerson | null> {
-        if (!Object.prototype.hasOwnProperty.call(allData, id)) {
+        if (!Object.prototype.hasOwnProperty.call(people, id)) {
             return null
         }
 
-        const entry = allData[id]
+        const entry = people[id]
         await randomDelay()
         return entry
     }
@@ -30,4 +29,4 @@ const randomDelay = () =>
         setTimeout(resolve, delay)
     })
 
-export default Database
+export default PeopleDB

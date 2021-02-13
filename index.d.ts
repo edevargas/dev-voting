@@ -28,7 +28,8 @@ type TAPOPeopleResponse = {
 }
 type TVote = {
     personId: TPersonId,
-    votes: number
+    thumbUp: number
+    thumbDown: number
 }
 type TUserId = string
 

@@ -1,7 +1,7 @@
-import DB from '@database'
+import PeopleDB from '@people'
 
 const allPeople = async (request: any, response: any) => {
-    const db = new DB()
+    const db = new PeopleDB()
     const allEntries = await db.getAll()
     return response.status(200).json(allEntries);
 }

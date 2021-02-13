@@ -2,7 +2,8 @@
     "compilerOptions": {
         "baseUrl": ".",
         "paths": {
-            "@database": ["database/db.ts"]
+            "@people": ["database/people.ts"],
+            "@users": ["database/users.ts"]
         },
         "target": "es6",
         "lib": ["dom", "dom.iterable", "esnext"],

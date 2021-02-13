@@ -18,6 +18,16 @@ class UsersDB {
         await randomDelay()
         return entry
     }
+
+    async login(username: string, password: string): Promise<TUser | null> {
+        const userId = (Object.keys(users) as Array<TUserId>).find(id => users[id].username === username && users[id].password === password);
+        if(!userId){
+            return null
+        }
+        const entry = users[userId]
+        await randomDelay()
+        return entry
+    }
 }
 
 const randomDelay = () =>

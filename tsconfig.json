@@ -4,7 +4,8 @@
         "paths": {
             "@people": ["database/people.ts"],
             "@users": ["database/users.ts"],
-            "@components/*": ["components/*"]
+            "@components/*": ["components/*"],
+            "@styles/*": ["styles/*"]
         },
         "target": "es6",
         "lib": ["dom", "dom.iterable", "esnext"],

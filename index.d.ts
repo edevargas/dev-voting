@@ -41,3 +41,10 @@ type TUser = {
     email: string
     votes: Tvote[]
 }
+type Validators = {
+    type: string,
+    message: string,
+    check: any,
+    valueToCheck: number
+}
+

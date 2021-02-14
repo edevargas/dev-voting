@@ -1,11 +1,20 @@
 import type {AppProps} from 'next/app'
 import Layout from "@components/layouts/Layout";
+import theme from '@styles/theme'
+import { ThemeProvider } from '@material-ui/core/styles'
+import CssBaseline from '@material-ui/core/CssBaseline';
+import React from "react";
 
 function MyApp({Component, pageProps}: AppProps) {
     return (
-        <Layout>
-            <Component {...pageProps} />
-        </Layout>
+        <ThemeProvider theme={theme}>
+            {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
+            <CssBaseline />
+            <Layout>
+                <Component {...pageProps} />
+            </Layout>
+        </ThemeProvider>
+
     )
 }
 

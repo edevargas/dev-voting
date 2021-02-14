@@ -3,7 +3,8 @@
         "baseUrl": ".",
         "paths": {
             "@people": ["database/people.ts"],
-            "@users": ["database/users.ts"]
+            "@users": ["database/users.ts"],
+            "@components/*": ["components/*"]
         },
         "target": "es6",
         "lib": ["dom", "dom.iterable", "esnext"],

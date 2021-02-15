@@ -1,6 +1,6 @@
 import {makeStyles} from '@material-ui/core/styles'
 
-export const useLoginStyles = makeStyles((theme) => ({
+const useLoginStyles = makeStyles((theme) => ({
     root: {
         height: '100vh',
     },
@@ -19,3 +19,4 @@ export const useLoginStyles = makeStyles((theme) => ({
         alignItems: 'center',
     }
 }))
+export default useLoginStyles

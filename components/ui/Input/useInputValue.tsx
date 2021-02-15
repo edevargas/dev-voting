@@ -1,5 +1,12 @@
 import {useState} from 'react'
-
+interface useInputValueProps {
+    name: string,
+    validators?: TValidator[],
+    value: string,
+    label?: string,
+    errors?: TError[],
+    type?: string
+}
 export const useInputValue = ({
                                   name: nameP = '',
                                   value: valueP = '',
@@ -7,13 +14,13 @@ export const useInputValue = ({
                                   validators: validatorsParam = [] ,
                                   errors: errorsP = [],
                                   type: typeP = 'text'
-                              }) => {
+                              }: useInputValueProps) => {
     const [value, setValue] = useState(valueP)
     const [errors, setErrors] = useState(errorsP)
     const [validators, setValidators] = useState(validatorsParam || [])
-    const [helperText, setHelperText] = useState(null)
+    const [helperText, setHelperText] = useState('')
 
-    const onChange = e => {
+    const onChange = (e: any) => {
         e.target ? setValue(e.target.value) : setValue(e)
         e.target ? validateInput(e.target.value) : validateInput(e)
 
@@ -24,7 +31,7 @@ export const useInputValue = ({
      * @param {*} value
      * @return Array of errors
      */
-    const validateInput = value => {
+    const validateInput = (value: any) => {
         const err = validators
             .filter(validator => !validator.check(value, validator?.valueToCheck))
             .map(val => {
@@ -35,8 +42,8 @@ export const useInputValue = ({
         return err
     }
 
-    const updateHelperText = (err) => {
-        err.length > 0 ? setHelperText(err.map(e => e.message)?.join('\n')) : setHelperText(null)
+    const updateHelperText = (err: TError[]) => {
+        err.length > 0 ? setHelperText(err.map(e => e.message)?.join('\n')) : setHelperText('')
     }
 
     return {

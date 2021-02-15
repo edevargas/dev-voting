@@ -1,6 +1,6 @@
-import React from 'react'
+import React, {SyntheticEvent} from 'react'
 import {useInputValue} from '../ui/Input/useInputValue'
-import {Input} from '../ui/Input'
+import Input from '../ui/Input'
 import {LoadingMessage, LoginError, useLoginFormStyles} from './styles'
 import {VALIDATORS_LOGIN_FORM} from './validators'
 import Button from '@material-ui/core/Button'
@@ -14,7 +14,13 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined'
 import Typography from '@material-ui/core/Typography'
 import Loader from '@components/ui/Loader'
 
-export const LoginForm = ({onSubmit, title = 'Sign in', error, loading}) => {
+type loginFormProps = {
+    onSubmit: Function,
+    title?: string,
+    error: string,
+    loading: boolean
+}
+export const LoginForm: React.FC<loginFormProps> = ({onSubmit, title = 'Sign in', error, loading}) => {
     // const [errorMessage, setErrorMessage] = useState()
     const classes = useLoginFormStyles(theme)
 
@@ -23,17 +29,17 @@ export const LoginForm = ({onSubmit, title = 'Sign in', error, loading}) => {
         name: 'password',
         type: 'password',
         label: 'Your password',
-        validators: VALIDATORS_LOGIN_FORM.password
+        validators: VALIDATORS_LOGIN_FORM.password as TValidator[]
     })
     const username = useInputValue({
         value: '',
         name: 'username',
         type: 'email',
         label: 'Your Email',
-        validators: VALIDATORS_LOGIN_FORM.username,
+        validators: VALIDATORS_LOGIN_FORM.username as TValidator[],
     })
 
-    const verifyForm = async (e) => {
+    const verifyForm = async (e: SyntheticEvent) => {
         e.preventDefault()
         if (isInvalidForm()) {
             // TODO setErrorMessage('you have an error')

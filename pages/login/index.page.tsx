@@ -1,15 +1,20 @@
-import React from 'react'
+import React, {useState} from 'react'
 import Grid from '@material-ui/core/Grid'
 import CssBaseline from '@material-ui/core/CssBaseline'
 import Paper from '@material-ui/core/Paper'
-import { useLoginState } from './state'
-import { useLoginStyles } from './styles'
+import useLoginStyles from './styles'
 import { LoginForm } from '@components/LoginForm'
 import theme from '@styles/theme'
 
 const Login: React.FC = () => {
-    const { loading, error, handleSubmit } = useLoginState();
-    const classes = useLoginStyles(theme);
+    const [loading, setLoading] = useState(false)
+    const [error, setError] = useState('')
+    const classes = useLoginStyles(theme)
+
+    const handleSubmit = () => {
+        console.log('handle submit Login')
+    }
+
 
     return (
         <Grid container component="main" className={classes.root}>

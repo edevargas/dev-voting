@@ -3,16 +3,16 @@ import {createMuiTheme} from '@material-ui/core/styles'
 let theme = createMuiTheme({
     palette: {
         primary: {
-            light: '#79e2e1',
-            main: '#66c2c1',
-            dark: '#4f9695',
+            light: '#ffffff',
+            main: '#ffffff',
+            dark: '#ffffff',
             contrastText: '#fff'
         },
         secondary: {
-            light: '#a79e02',
-            main: '#827b00',
-            dark: '#524e01',
-            contrastText: '#fff',
+            light: '#ffffff',
+            main: 'blue',
+            dark: '#ffffff',
+            contrastText: '#000',
         }
     },
     typography: {
@@ -53,6 +53,14 @@ theme = {
                 boxShadow: 'none',
                 '&:active': {
                     boxShadow: 'none'
+                }
+            },
+            outlined: {
+                color: "#ffffff",
+                primary: {
+                    light: '#ffffff',
+                    main: '#ffffff',
+                    dark: '#ffffff'
                 }
             }
         },

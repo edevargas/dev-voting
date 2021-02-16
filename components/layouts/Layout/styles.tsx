@@ -1,12 +1,13 @@
 import React from 'react'
 
 export const MainContainer: React.FC = ({ children }) => (
-    <div>
+    <div className='main-container'>
         { children }
         <style jsx>{`
-        div {
+        .main-container {
            width: 100%;
            margin: 0 auto;
+           max-width: 900px;
         }
      `}</style>
     </div>

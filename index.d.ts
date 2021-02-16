@@ -16,7 +16,10 @@ type TPerson = {
     thumbDown: number
     image: Url
     information_url: string
-    description: string
+    description: string,
+    feat: boolean,
+    publishedDate: string,
+    category: string
 }
 
 type TAPIPersonResponse = TPerson

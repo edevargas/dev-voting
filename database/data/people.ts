@@ -4,45 +4,61 @@ const people: Record<TPersonId, TPerson> = {
         id: '2zd33b8c',
         thumbUp: 0,
         thumbDown: 0,
-        image: '/images/maluma.jpg',
+        image: '/images/pope.png',
         information_url: '',
-        description: 'lorem'
+        description: 'lorem',
+        feat: true,
+        publishedDate: '01-01-2021',
+        category: 'religious'
     },
     '23h123h': {
-        name: 'Pope Francis',
+        name: 'Kanye West',
         id: '23h123h',
         thumbUp: 0,
         thumbDown: 0,
-        image: '/images/maluma.jpg',
+        image: '/images/kanye.png',
         information_url: '',
-        description: 'lorem'
+        description: 'lorem',
+        feat: false,
+        publishedDate: '01-01-2021',
+        category: 'Entertainment'
+
     },
     '34j5345': {
-        name: 'Pope Francis',
+        name: 'Mark Zuckerberg',
         id: '34j5345',
         thumbUp: 0,
         thumbDown: 0,
-        image: '/images/maluma.jpg',
+        image: '/images/Mark.png',
         information_url: '',
-        description: 'lorem'
+        description: 'lorem',
+        feat: false,
+        publishedDate: '01-01-2021',
+        category: 'Business'
     },
     '345i23': {
-        name: 'Pope Francis',
+        name: 'Cristina Fernández de Kitchner',
         id: '345i23',
         thumbUp: 0,
         thumbDown: 0,
-        image: '/images/maluma.jpg',
+        image: '/images/cristina.png',
         information_url: '',
-        description: 'lorem'
+        description: 'lorem',
+        feat: false,
+        publishedDate: '01-01-2021',
+        category: 'Politics'
     },
     '123j3j4': {
-        name: 'Pope Francis',
+        name: 'Malala Yousafzai',
         id: '123j3j4',
         thumbUp: 0,
         thumbDown: 0,
-        image: '/images/maluma.jpg',
+        image: '/images/malala.png',
         information_url: '',
-        description: 'lorem'
+        description: 'lorem',
+        feat: false,
+        publishedDate: '01-01-2021',
+        category: 'Entertainment'
     },
 
 }

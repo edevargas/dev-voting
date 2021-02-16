@@ -7,11 +7,14 @@ This is a **JAMStack** project made in **NextJS** in order to test some concepts
 https://dev-voting.vercel.app/ 	
 
 The credentials to **log in** are:
+
 	username: **edevargas** 
+	
  password: **111111**
 
 ## Run this project locally
 `yarn install`
+
 `yarn dev`
 
 # Glosary

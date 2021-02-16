@@ -87,8 +87,8 @@ export const ThumbUp= (props: PropsWithChildren<any>) => (
         {props.children}
         <style jsx>{`
         div {
-             background: green;
-             width: 50%;
+             background: #2c9b96;
+             width: ${props.per}%;
              padding: 10px 0;
         }
      `}</style>
@@ -100,8 +100,8 @@ export const ThumbDown= (props: PropsWithChildren<any>) => (
         {props.children}
         <style jsx>{`
         div {
-             background: orange;
-              width: 50%;
+             background: #cf942f;
+              width: ${props.per}%;
                padding: 10px 0;
         }
      `}</style>
@@ -120,11 +120,11 @@ export const VoteZone = (props: PropsWithChildren<any>) => (
     </div>
 )
 export const ButtonThumbUp = (props: PropsWithChildren<any>) => (
-    <div>
+    <div {...props}>
         {props.children}
         <style jsx>{`
         div {
-             background: green;
+             background: #2c9b96;
              width: 40px;
              height: 40px;
              margin-right: 5px;
@@ -136,11 +136,11 @@ export const ButtonThumbUp = (props: PropsWithChildren<any>) => (
     </div>
 )
 export const ButtonThumbDown = (props: PropsWithChildren<any>) => (
-    <div>
+    <div {...props}>
         {props.children}
         <style jsx>{`
         div {
-             background: red;
+             background: #cf942f;
              width: 40px;
              height: 40px;
              margin-right: 5px;
@@ -152,7 +152,7 @@ export const ButtonThumbDown = (props: PropsWithChildren<any>) => (
     </div>
 )
 export const ButtonVote = (props: PropsWithChildren<any>) => (
-    <Button variant="contained" color="primary">
+    <Button variant="contained" color="primary" {...props}>
         {props.children}
         <style jsx>{`
         .Button {
@@ -160,5 +160,16 @@ export const ButtonVote = (props: PropsWithChildren<any>) => (
         }
      `}</style>
     </Button>
+)
+
+export const WinnerZone = (props: PropsWithChildren<any>) => (
+    <div>
+        {props.children}
+        <style jsx>{`
+        div {
+             width: 50px
+        }
+     `}</style>
+    </div>
 )
 

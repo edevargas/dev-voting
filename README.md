@@ -8,8 +8,8 @@ https://dev-voting.vercel.app/
 
 The credentials to **log in** are:
 
-	username: **edevargas** 
-	
+ username: **edevargas** 
+ 
  password: **111111**
 
 ## Run this project locally

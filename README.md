@@ -2,14 +2,14 @@
 
 This is a **JAMStack** project made in **NextJS** in order to test some concepts.
 	
+ If you want to **test** this application, go to
+https://dev-voting.vercel.app/ 	
 
-> If you want to **test** this application, go to
-> https://dev-voting.vercel.app/ 	
-> The credentials to **log in** are:
-> 	username: **edevargas** 
-> password: **111111**
+The credentials to **log in** are:
+	username: **edevargas** 
+ password: **111111**
 
-	
+
 
 # Glosary
 	User: registered user

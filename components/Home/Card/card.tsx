@@ -11,7 +11,7 @@ import {
 } from "@components/Home/Card/styles";
 import ThumbUpIcon from '@material-ui/icons/ThumbUp';
 import ThumbDownIcon from '@material-ui/icons/ThumbDown';
-import {Button} from "@material-ui/core";
+import CustomSnackbar from "@components/layouts/Snackbar";
 
 const Card: React.FC<TPerson> = ({
                                      name,
@@ -32,11 +32,45 @@ const Card: React.FC<TPerson> = ({
     const [showVoteAgain, setShowVoteAgain] = useState(0)
     const [percentageUp, setPercentageUp] = useState(0)
     const [percentageDown, setPercentageDown] = useState(0)
+    const [error, setError] = useState<string | null>(null)
+    const [isSnackbarOpened, setOpenSnackbar] = React.useState(false);
 
     useEffect(() => {
         calculatePercentage()
     }, [votesThumbUp, votesThumbDown])
 
+    useEffect(() => {
+        getLocalData()
+    }, [])
+
+    const getLocalData = () => {
+        const authenticatedUser= getAuthenticatedUser()
+        if (authenticatedUser) {
+            const votes = localStorage.getItem(`${authenticatedUser}:${id}`)
+            if (votes) {
+                updateCounterVotes(votes)
+            }
+        }
+    }
+    const getAuthenticatedUser = () => {
+        const user = localStorage.getItem('user')
+        return user
+    }
+    const updateCounterVotes = (votesString: string) => {
+        const votosArray = votesString.split(',')
+        let upCount = 0
+        let downCount = 0
+        setVotesUserCounter(votosArray.length | 0)
+        votosArray.forEach(v => {
+            if (v === 'UP') {
+                upCount++
+            } else {
+                downCount++
+            }
+        })
+        setVotesThumbUp(votesThumbDown + upCount)
+        setVotesThumbDown(votesThumbDown + downCount)
+    }
     const calculatePercentage = () => {
         const total = votesThumbUp + votesThumbDown
         if (total === 0) {
@@ -45,7 +79,6 @@ const Card: React.FC<TPerson> = ({
         } else {
             const perUp = votesThumbUp * 100 / total
             setPercentageUp(perUp)
-            console.log(perUp)
             const perDown = votesThumbDown * 100 / total
             setPercentageDown(perDown)
         }
@@ -54,7 +87,6 @@ const Card: React.FC<TPerson> = ({
 
     const onClickThumbUp = (e: any) => {
         e.preventDefault()
-        console.log('asasdasdasd')
         setThumbSelected('UP')
     }
     const onClickThumbDown = (e: any) => {
@@ -64,9 +96,29 @@ const Card: React.FC<TPerson> = ({
 
     const onVote = (e: any) => {
         e.preventDefault()
+        const user = getAuthenticatedUser()
+        if (!user) {
+            setOpenSnackbar(true)
+            return
+        }
+        persist(thumbSelected, user)
         thumbSelected === 'UP' ? setVotesThumbUp(votesThumbUp + 1) : setVotesThumbDown(votesThumbDown + 1)
         setVotesUserCounter(votesUserCounter + 1)
         setThumbSelected('VOTED')
+
+    }
+    const persist = (thumb: any, user: string) => {
+              const localVotes = localStorage.getItem(`${user}:${id}`)
+        if (localVotes) {
+            const localVotesUpdated = thumb + "," + localVotes
+            console.log(localVotesUpdated)
+
+            localStorage.setItem(`${user}:${id}`, localVotesUpdated)
+        } else {
+
+            localStorage.setItem(`${user}:${id}`, thumb)
+        }
+
     }
 
     const onVoteAgain = (e: any) => {
@@ -121,6 +173,14 @@ const Card: React.FC<TPerson> = ({
             </ButtonThumbDown>}
         </WinnerZone>
     )
+
+    const fillSnackbar = () => (
+        <CustomSnackbar
+            message="You must log in to vote"
+            open={isSnackbarOpened}
+            handleClose={() => setOpenSnackbar(false)} />
+    )
+
     return (
         <CardContainer image={image}>
             <CardBody>
@@ -128,6 +188,7 @@ const Card: React.FC<TPerson> = ({
                 {fillCardDescription()}
             </CardBody>
             {fillResumeThumb()}
+            {fillSnackbar()}
         </CardContainer>
     );
 };

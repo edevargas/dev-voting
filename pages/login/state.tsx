@@ -31,16 +31,24 @@ export const useLoginState = () => {
                 password
             }),
         })
-            .then(response => response.json())
-            .then(response => response.status === 200 ? authenticationSuccess(response) : authenticationError(response.message))
+            .then(response => {
+                if(response.status === 200){
+                    return response.json()
+                }
+                console.log(response)
+                throw new Error('Username and password do not match.')
+            })
+            .then(authenticationSuccess)
             .catch(e => authenticationError(e.message))
     }
     const authenticationSuccess = (user: TUser) => {
+        console.log(user)
         setLocalStorage(user.id)
         setLoading(false)
         router.replace('/' )
     }
-    const authenticationError = (message: string) => {
+    const authenticationError = (message: any) => {
+        console.log(message)
         removeValue()
         setError(message)
         setLoading(false)

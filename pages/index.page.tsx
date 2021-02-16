@@ -1,5 +1,4 @@
 import React, {useEffect, useState} from 'react'
-import Navbar from '@components/Navbar/Navbar'
 import ListCard from "@components/Home/ListCard/ListCard";
 import Header from "@components/layouts/Header";
 

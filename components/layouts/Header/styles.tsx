@@ -1,7 +1,5 @@
 import React, {PropsWithChildren} from "react";
-import Link from "next/link";
 import Button from "@material-ui/core/Button";
-import {Toolbar} from "@material-ui/core";
 
 export const LogInOutButton = (props: PropsWithChildren<any>) => (
     <a {...props}>

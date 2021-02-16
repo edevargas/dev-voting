@@ -17,11 +17,10 @@ import Loader from '@components/ui/Loader'
 type loginFormProps = {
     onSubmit: Function,
     title?: string,
-    error: string,
+    error: Nullable<string>,
     loading: boolean
 }
 export const LoginForm: React.FC<loginFormProps> = ({onSubmit, title = 'Sign in', error, loading}) => {
-    // const [errorMessage, setErrorMessage] = useState()
     const classes = useLoginFormStyles(theme)
 
     const password = useInputValue({
@@ -34,8 +33,8 @@ export const LoginForm: React.FC<loginFormProps> = ({onSubmit, title = 'Sign in'
     const username = useInputValue({
         value: '',
         name: 'username',
-        type: 'email',
-        label: 'Your Email',
+        type: 'text',
+        label: 'Your username',
         validators: VALIDATORS_LOGIN_FORM.username as TValidator[],
     })
 

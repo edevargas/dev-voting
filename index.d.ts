@@ -52,3 +52,4 @@ type TError = {
     type: string
     message: string
 }
+type Nullable<T> = T | null

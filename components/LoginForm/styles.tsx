@@ -21,12 +21,13 @@ export const LoginError: React.FC = ({children}) => (
         <style jsx>{`
         div {
           font-size: 0.8em;
-            color: red;
+            color: white;
             background: #f15a5a;
             padding: 10px 20px;
             text-align: center;
             margin-top: 10px;
             width: 350px;
+            width: 100%;
         }
      `}</style>
     </div>
@@ -42,7 +43,6 @@ export const LoadingMessage: React.FC = ({children}) => (
           flex-direction: column;
           align-items: center;
           width: 100%;
-          font-size: 0.8em;
            color: #ececec;
           font-style: italic;
         }

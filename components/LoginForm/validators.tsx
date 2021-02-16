@@ -19,12 +19,6 @@ export const VALIDATORS_LOGIN_FORM = {
             valueToCheck: 0
         },
         {
-            type: 'pattern',
-            message: PATTERN_ERROR_MESSAGE,
-            check: checkPattern,
-            valueToCheck: PATTERN_EMAIL
-        },
-        {
             type: 'maxlength',
             message: MAX_LENGTH_MESSAGE.replace('?', '100'),
             check: checkMaxLength,

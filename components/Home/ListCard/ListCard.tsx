@@ -2,8 +2,10 @@ import React, {PropsWithChildren} from 'react';
 import {ListContainer} from "@components/Home/ListCard/styles";
 import Card from "@components/Home/Card/card";
 
-const ListCard: React.FC = ({people}: PropsWithChildren<any>) => {
-    console.log('list', people)
+type ListCardProps = {
+    people: TPerson[]
+}
+const ListCard: React.FC<ListCardProps> = ({people}) => {
     return (
         <ListContainer>
             {people.map((person: TPerson) => {

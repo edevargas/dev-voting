@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import Navbar from '@components/Navbar/Navbar'
 import ListCard from "@components/Home/ListCard/ListCard";
+import Header from "@components/layouts/Header";
 
 const Home = () => {
     const [people, setPeople] = useState<TPerson[]>([])
@@ -9,9 +10,6 @@ const Home = () => {
         getData()
     }, [])
 
-    useEffect(() => {
-       console.log(people)
-    }, [people])
 
     const getData = async () => {
         window.fetch('/api/people')
@@ -19,15 +17,14 @@ const Home = () => {
             .then(updateState)
     }
 
-    const updateState = (people) => {
-        console.log('updateState', people)
+    const updateState = (people: TPerson[]) => {
         setPeople(people)
     }
 
     const fillBody = () => (people.length > 0 && ( <ListCard people={people} />))
     return (
         <div>
-            <Navbar/>
+            <Header/>
             {fillBody()}
         </div>
     )

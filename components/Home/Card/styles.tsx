@@ -29,10 +29,25 @@ export const CardBody = (props: PropsWithChildren<any>) => (
         div {
              display: flex;
              width: 100%;
+             z-index: 3;
         }
      `}</style>
     </div>
 )
+export const Filter = (props: PropsWithChildren<any>) => (
+    <div>
+        {props.children}
+        <style jsx>{`
+        div {
+             width: 350px;
+            height: 400px;
+            background: #00000096;
+             position: absolute;
+        }
+     `}</style>
+    </div>
+)
+
 
 export const CardDescription = (props: PropsWithChildren<any>) => (
     <div>
@@ -40,6 +55,7 @@ export const CardDescription = (props: PropsWithChildren<any>) => (
         <style jsx>{`
         div {
             margin-bottom: 30px;
+            z-index: 3;
         }
      `}</style>
     </div>
@@ -77,6 +93,7 @@ export const ResumeThumb = (props: PropsWithChildren<any>) => (
              width: 100%;
              height: 50px;
              align-items: center;
+             z-index: 3;
         }
      `}</style>
     </div>
@@ -87,7 +104,7 @@ export const ThumbUp= (props: PropsWithChildren<any>) => (
         {props.children}
         <style jsx>{`
         div {
-             background: #2c9b96;
+             background: #2c9b96e0;
              width: ${props.per}%;
              padding: 10px 0;
         }
@@ -100,7 +117,7 @@ export const ThumbDown= (props: PropsWithChildren<any>) => (
         {props.children}
         <style jsx>{`
         div {
-             background: #cf942f;
+             background: #cf942fe8;
               width: ${props.per}%;
                padding: 10px 0;
         }
@@ -124,7 +141,7 @@ export const ButtonThumbUp = (props: PropsWithChildren<any>) => (
         {props.children}
         <style jsx>{`
         div {
-             background: #2c9b96;
+             background: #2c9b96e0;
              width: 40px;
              height: 40px;
              margin-right: 5px;
@@ -140,7 +157,7 @@ export const ButtonThumbDown = (props: PropsWithChildren<any>) => (
         {props.children}
         <style jsx>{`
         div {
-             background: #cf942f;
+             background: #cf942fe8;
              width: 40px;
              height: 40px;
              margin-right: 5px;

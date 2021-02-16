@@ -7,7 +7,8 @@ import {
     ResumeThumb,
     ThumbDown,
     ThumbUp,
-    Description, VoteZone, ButtonThumbUp, ButtonThumbDown, ButtonVote, WinnerZone
+    Description, VoteZone, ButtonThumbUp, ButtonThumbDown, ButtonVote, WinnerZone,
+    Filter
 } from "@components/Home/Card/styles";
 import ThumbUpIcon from '@material-ui/icons/ThumbUp';
 import ThumbDownIcon from '@material-ui/icons/ThumbDown';
@@ -44,7 +45,7 @@ const Card: React.FC<TPerson> = ({
     }, [])
 
     const getLocalData = () => {
-        const authenticatedUser= getAuthenticatedUser()
+        const authenticatedUser = getAuthenticatedUser()
         if (authenticatedUser) {
             const votes = localStorage.getItem(`${authenticatedUser}:${id}`)
             if (votes) {
@@ -108,7 +109,7 @@ const Card: React.FC<TPerson> = ({
 
     }
     const persist = (thumb: any, user: string) => {
-              const localVotes = localStorage.getItem(`${user}:${id}`)
+        const localVotes = localStorage.getItem(`${user}:${id}`)
         if (localVotes) {
             const localVotesUpdated = thumb + "," + localVotes
             console.log(localVotesUpdated)
@@ -178,11 +179,12 @@ const Card: React.FC<TPerson> = ({
         <CustomSnackbar
             message="You must log in to vote"
             open={isSnackbarOpened}
-            handleClose={() => setOpenSnackbar(false)} />
+            handleClose={() => setOpenSnackbar(false)}/>
     )
 
     return (
         <CardContainer image={image}>
+            <Filter/>
             <CardBody>
                 {fillWinner()}
                 {fillCardDescription()}

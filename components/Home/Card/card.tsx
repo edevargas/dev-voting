@@ -40,24 +40,7 @@ const Card: React.FC<TPerson> = ({
         calculatePercentage()
     }, [votesThumbUp, votesThumbDown])
 
-    useEffect(() => {
-        getLocalData()
-    }, [])
-
-    const getLocalData = () => {
-        const authenticatedUser = getAuthenticatedUser()
-        if (authenticatedUser) {
-            const votes = localStorage.getItem(`${authenticatedUser}:${id}`)
-            if (votes) {
-                updateCounterVotes(votes)
-            }
-        }
-    }
-    const getAuthenticatedUser = () => {
-        const user = localStorage.getItem('user')
-        return user
-    }
-    const updateCounterVotes = (votesString: string) => {
+      const updateCounterVotes = (votesString: string) => {
         const votosArray = votesString.split(',')
         let upCount = 0
         let downCount = 0
@@ -97,12 +80,7 @@ const Card: React.FC<TPerson> = ({
 
     const onVote = (e: any) => {
         e.preventDefault()
-        const user = getAuthenticatedUser()
-        if (!user) {
-            setOpenSnackbar(true)
-            return
-        }
-        persist(thumbSelected, user)
+        persist(thumbSelected, 'user')
         thumbSelected === 'UP' ? setVotesThumbUp(votesThumbUp + 1) : setVotesThumbDown(votesThumbDown + 1)
         setVotesUserCounter(votesUserCounter + 1)
         setThumbSelected('VOTED')
@@ -156,7 +134,7 @@ const Card: React.FC<TPerson> = ({
                 <ThumbDownIcon/>
             </ButtonThumbDown>}
             {thumbSelected != 'VOTED' && <ButtonVote disabled={!thumbSelected} onClick={onVote}>VOTE</ButtonVote>}
-            {thumbSelected === 'VOTED' && votesUserCounter < 3 &&
+            {thumbSelected === 'VOTED' &&
             <ButtonVote onClick={onVoteAgain}>VOTE AGAIN</ButtonVote>}
 
         </VoteZone>

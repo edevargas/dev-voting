@@ -1,5 +1,6 @@
 import React, {PropsWithChildren} from "react";
 import {Button} from "@material-ui/core";
+import Link from "next/link";
 
 export const CardContainer = (props: PropsWithChildren<any>) => (
     <div>
@@ -99,7 +100,7 @@ export const ResumeThumb = (props: PropsWithChildren<any>) => (
     </div>
 )
 
-export const ThumbUp= (props: PropsWithChildren<any>) => (
+export const ThumbUp = (props: PropsWithChildren<any>) => (
     <div>
         {props.children}
         <style jsx>{`
@@ -112,7 +113,7 @@ export const ThumbUp= (props: PropsWithChildren<any>) => (
     </div>
 )
 
-export const ThumbDown= (props: PropsWithChildren<any>) => (
+export const ThumbDown = (props: PropsWithChildren<any>) => (
     <div>
         {props.children}
         <style jsx>{`
@@ -188,5 +189,28 @@ export const WinnerZone = (props: PropsWithChildren<any>) => (
         }
      `}</style>
     </div>
+)
+
+export const CustomA = (props: PropsWithChildren<any>) => (
+    <a>
+        {props.children}
+        <style jsx>{`
+        a {
+             color: white !important;
+             z-index: 5;
+        }
+     `}</style>
+    </a>
+)
+export const LinkMore = (props: PropsWithChildren<any>) => (
+    <a {...props}>
+        <Button color="inherit">See more</Button>
+        <style jsx>{`
+        a {
+             color: white;
+             text-align: right;
+        }
+     `}</style>
+    </a>
 )
 

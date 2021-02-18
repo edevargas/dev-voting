@@ -18,7 +18,7 @@ const people: Record<TPersonId, TPerson> = {
         thumbDown: 0,
         image: '/images/kanye.png',
         information_url: '',
-        description: 'lorem',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et',
         feat: false,
         publishedDate: '01-01-2021',
         category: 'Entertainment'
@@ -31,7 +31,7 @@ const people: Record<TPersonId, TPerson> = {
         thumbDown: 0,
         image: '/images/Mark.png',
         information_url: '',
-        description: 'lorem',
+        description: 'lorem ',
         feat: false,
         publishedDate: '01-01-2021',
         category: 'Business'
@@ -43,7 +43,7 @@ const people: Record<TPersonId, TPerson> = {
         thumbDown: 0,
         image: '/images/cristina.png',
         information_url: '',
-        description: 'lorem',
+        description: 'ed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium',
         feat: false,
         publishedDate: '01-01-2021',
         category: 'Politics'
@@ -55,7 +55,7 @@ const people: Record<TPersonId, TPerson> = {
         thumbDown: 0,
         image: '/images/malala.png',
         information_url: '',
-        description: 'lorem',
+        description: 'But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain',
         feat: false,
         publishedDate: '01-01-2021',
         category: 'Entertainment'

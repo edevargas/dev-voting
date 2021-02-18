@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import {
     CardBody,
     CardContainer,
@@ -8,12 +8,13 @@ import {
     ThumbDown,
     ThumbUp,
     Description, VoteZone, ButtonThumbUp, ButtonThumbDown, ButtonVote, WinnerZone,
-    Filter
+    Filter, CustomA, LinkMore
 } from "@components/Home/Card/styles";
 import ThumbUpIcon from '@material-ui/icons/ThumbUp';
 import ThumbDownIcon from '@material-ui/icons/ThumbDown';
 import CustomSnackbar from "@components/layouts/Snackbar";
 import useCardState from "@components/Home/Card/state";
+import Link from "next/link";
 
 const Card: React.FC<TPerson> = ({
                                      name,
@@ -97,13 +98,20 @@ const Card: React.FC<TPerson> = ({
             handleClose={() => setOpenSnackbar(false)}/>
     )
 
+    const fillSeeMoreButton = () => (
+        <Link href={`/candidate/${id}`}>
+            <LinkMore />
+        </Link>
+    )
     return (
         <CardContainer image={image}>
             <Filter/>
             <CardBody>
                 {fillWinner()}
                 {fillCardDescription()}
+
             </CardBody>
+            {fillSeeMoreButton()}
             {fillResumeThumb()}
             {fillSnackbar()}
         </CardContainer>

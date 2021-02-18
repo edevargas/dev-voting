@@ -9,6 +9,7 @@
         "build": "next build",
         "start": "next start",
         "lint": "standard",
+        "export": "next export",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "keywords": [

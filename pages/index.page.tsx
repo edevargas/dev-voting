@@ -1,26 +1,20 @@
-import React, {useEffect, useState} from 'react'
+import React from 'react'
 import ListCard from "@components/Home/ListCard/ListCard";
 import Header from "@components/layouts/Header";
 
-const Home = () => {
-    const [people, setPeople] = useState<TPerson[]>([])
+export const getStaticProps = async () => {
+    const response = await fetch('https://dev-voting.vercel.app/api/people')
+    const peopleList = await response.json()
 
-    useEffect(() => {
-        getData()
-    }, [])
-
-
-    const getData = async () => {
-        window.fetch('/api/people')
-            .then(response => response.json())
-            .then(updateState)
+    return {
+        props: {
+            peopleList
+        }
     }
+}
+const Home = ({ peopleList }: { peopleList: TPerson[] }) => {
 
-    const updateState = (people: TPerson[]) => {
-        setPeople(people)
-    }
-
-    const fillBody = () => (people.length > 0 && ( <ListCard people={people} />))
+    const fillBody = () => (peopleList && ( <ListCard people={peopleList} />))
     return (
         <div>
             <Header/>

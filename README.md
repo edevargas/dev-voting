@@ -17,6 +17,103 @@ The credentials to **log in** are:
 
 `yarn dev`
 
+# API
+
+The API is exposed in /api/*
+Example: http://dev-voting.vercel.app/api
+
+- ### api/auth  : AUTHENTICATION
+**Method:** POST
+**body** 
+` {
+    username: string,
+	password: string
+}`
+**Responses: ** (200)
+```json
+{
+    id: string
+    names: string
+    username: string
+    password: string
+    email: string
+    votes: Tvote[]
+}
+```
+(401) `{
+    "message": "Username and password do not match."
+}`
+(405) `Method not allowed`
+
+- ### api/people  : GET ALL PEOPLE
+**Method:** GET
+**Responses: ** (200)
+```json
+[
+	{
+		id: string,
+		name: string,
+		thumbUp: number,
+		thumbDown: number,
+		image: Url,
+		information_url: string,
+		description: string,
+		feat: boolean,
+		publishedDate: string,
+		category: string
+	}
+]
+```
+
+- ### api/people/{personId}   : GET PERSON BY ID
+**Method:** GET
+**Responses: ** (200)
+```json
+	{
+		id: string,
+		name: string,
+		thumbUp: number,
+		thumbDown: number,
+		image: Url,
+		information_url: string,
+		description: string,
+		feat: boolean,
+		publishedDate: string,
+		category: string
+	}
+```
+- ### api/users  :  GET ALL USERS
+**Method:** GET
+**Responses: ** (200)
+```json
+	[
+		{
+			id: string
+			names: string
+			username: string
+			password: string
+			email: string
+			votes: Tvote[]
+		}
+	]
+```
+
+- ### api/users/{username}   : GET USER BY USERNAME
+**Method:** GET
+**Responses: ** (200)
+```json
+		{
+			id: string
+			names: string
+			username: string
+			password: string
+			email: string
+			votes: Tvote[]
+		}
+```
+(404) Not Found
+(405) Method not allowed
+
 # Glosary
 	User: registered user
 	Person: Famous person you can vote for

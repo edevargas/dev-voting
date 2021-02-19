@@ -24,12 +24,16 @@ Example: http://dev-voting.vercel.app/api
 
 - ### api/auth  : AUTHENTICATION
 **Method:** POST
+
 **body** 
+
 ` {
     username: string,
 	password: string
 }`
+
 **Responses: ** (200)
+
 ```json
 {
     id: string
@@ -40,14 +44,19 @@ Example: http://dev-voting.vercel.app/api
     votes: Tvote[]
 }
 ```
+
 (401) `{
     "message": "Username and password do not match."
 }`
+
 (405) `Method not allowed`
 
-- ### api/people  : GET ALL PEOPLE
+### api/people  : GET ALL PEOPLE
+ 
 **Method:** GET
+
 **Responses: ** (200)
+
 ```json
 [
 	{
@@ -67,7 +76,9 @@ Example: http://dev-voting.vercel.app/api
 
 - ### api/people/{personId}   : GET PERSON BY ID
 **Method:** GET
+
 **Responses: ** (200)
+
 ```json
 	{
 		id: string,
@@ -82,9 +93,13 @@ Example: http://dev-voting.vercel.app/api
 		category: string
 	}
 ```
-- ### api/users  :  GET ALL USERS
+
+### api/users  :  GET ALL USERS
+
 **Method:** GET
+
 **Responses: ** (200)
+
 ```json
 	[
 		{
@@ -98,9 +113,12 @@ Example: http://dev-voting.vercel.app/api
 	]
 ```
 
-- ### api/users/{username}   : GET USER BY USERNAME
+### api/users/{username}   : GET USER BY USERNAME
+
 **Method:** GET
+
 **Responses: ** (200)
+
 ```json
 		{
 			id: string
@@ -111,7 +129,9 @@ Example: http://dev-voting.vercel.app/api
 			votes: Tvote[]
 		}
 ```
+
 (404) Not Found
+
 (405) Method not allowed
 
 # Glosary

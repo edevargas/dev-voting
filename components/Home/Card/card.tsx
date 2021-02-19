@@ -8,7 +8,7 @@ import {
     ThumbDown,
     ThumbUp,
     Description, VoteZone, ButtonThumbUp, ButtonThumbDown, ButtonVote, WinnerZone,
-    Filter, CustomA, LinkMore
+    Filter, CustomA, LinkMore, Percentage
 } from "@components/Home/Card/styles";
 import ThumbUpIcon from '@material-ui/icons/ThumbUp';
 import ThumbDownIcon from '@material-ui/icons/ThumbDown';
@@ -47,9 +47,11 @@ const Card: React.FC<TPerson> = ({
         <ResumeThumb>
             <ThumbUp per={percentageUp}>
                 <ThumbUpIcon/>
+                {percentageUp > 33.33 && <Percentage>{percentageUp.toFixed(2)} %</Percentage>}
             </ThumbUp>
             <ThumbDown per={percentageDown}>
                 <ThumbDownIcon/>
+                {percentageDown > 33.33 && <Percentage>{percentageDown.toFixed(2)} %</Percentage>}
             </ThumbDown>
         </ResumeThumb>
     )

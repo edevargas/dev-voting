@@ -57,6 +57,8 @@ export const CardDescription = (props: PropsWithChildren<any>) => (
         div {
             margin-bottom: 30px;
             z-index: 3;
+            width: 100%;
+            padding: 5px;
         }
      `}</style>
     </div>
@@ -95,6 +97,7 @@ export const ResumeThumb = (props: PropsWithChildren<any>) => (
              height: 50px;
              align-items: center;
              z-index: 3;
+             overflow: hidden;
         }
      `}</style>
     </div>
@@ -107,10 +110,26 @@ export const ThumbUp = (props: PropsWithChildren<any>) => (
         div {
              background: #2c9b96e0;
              width: ${props.per}%;
-             padding: 10px 0;
+             padding: 10px 10px;
+             display: flex;
+             align-items: center;
         }
      `}</style>
     </div>
+)
+
+export const Percentage = (props: PropsWithChildren<any>) => (
+    <p>
+        {props.children}
+        <style jsx>{`
+        p {
+             margin: 0;
+             display: inline-block;
+             font-size: 0.9em;
+             margin-left: 5px;
+        }
+     `}</style>
+    </p>
 )
 
 export const ThumbDown = (props: PropsWithChildren<any>) => (
@@ -120,7 +139,9 @@ export const ThumbDown = (props: PropsWithChildren<any>) => (
         div {
              background: #cf942fe8;
               width: ${props.per}%;
-               padding: 10px 0;
+              padding: 10px 0;
+              display: flex;
+              align-items: center;
         }
      `}</style>
     </div>

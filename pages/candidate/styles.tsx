@@ -23,7 +23,7 @@ export const ProfileImage = (props: PropsWithChildren<any>) => (
             background-repeat: no-repeat;
             background-color: white;
             background-size: cover;
-            background-position: center;
+            background-position: top;
             width: 100%;
             max-width: 960px;
             height: 400px;

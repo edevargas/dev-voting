@@ -4,6 +4,7 @@ import ThumbUpIcon from "@material-ui/icons/ThumbUp";
 import ThumbDownIcon from "@material-ui/icons/ThumbDown";
 import useCandidateState from "./state";
 import {GetStaticProps, InferGetStaticPropsType } from "next";
+import Header from "@components/layouts/Header";
 
 export const getStaticPaths = async () => {
     const response = await fetch('https://dev-voting.vercel.app/api/people')
@@ -54,6 +55,7 @@ const Candidate = ({person} : InferGetStaticPropsType<typeof getStaticProps>) =>
     )
     return (
         <CandidateContainer>
+            <Header/>
             <ProfileImage image={person.image}>
                 {fillResume()}
             </ProfileImage>

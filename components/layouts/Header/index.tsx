@@ -42,7 +42,7 @@ export default function Header() {
     return (
         <CustomToolbar>
             <Typography variant="h6">
-                Voting Test
+                Rule of Thumb
             </Typography>
             {fillLogButton()}
 

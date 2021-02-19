@@ -40,14 +40,12 @@ export default function Header() {
 
 
     return (
-        <AppBar position="static">
-            <CustomToolbar>
-                <Typography variant="h6">
-                    Edevargas Lab
-                </Typography>
-                {fillLogButton()}
+        <CustomToolbar>
+            <Typography variant="h6">
+                Voting Test
+            </Typography>
+            {fillLogButton()}
 
-            </CustomToolbar>
-        </AppBar>
+        </CustomToolbar>
     )
 }

@@ -23,7 +23,7 @@ The API is exposed in /api/*
 Example: http://dev-voting.vercel.app/api
 
 - ### api/auth  : AUTHENTICATION
-**Method:** POST
+**Method**: POST
 
 **body** 
 
@@ -32,7 +32,7 @@ Example: http://dev-voting.vercel.app/api
 	password: string
 }`
 
-**Responses: ** (200)
+**Responses:** (200)
 
 ```json
 {
@@ -55,7 +55,7 @@ Example: http://dev-voting.vercel.app/api
  
 **Method:** GET
 
-**Responses: ** (200)
+**Responses:** (200)
 
 ```json
 [
@@ -77,7 +77,7 @@ Example: http://dev-voting.vercel.app/api
 - ### api/people/{personId}   : GET PERSON BY ID
 **Method:** GET
 
-**Responses: ** (200)
+**Responses:** (200)
 
 ```json
 	{
@@ -98,7 +98,7 @@ Example: http://dev-voting.vercel.app/api
 
 **Method:** GET
 
-**Responses: ** (200)
+**Responses:** (200)
 
 ```json
 	[
@@ -117,7 +117,7 @@ Example: http://dev-voting.vercel.app/api
 
 **Method:** GET
 
-**Responses: ** (200)
+**Responses:** (200)
 
 ```json
 		{

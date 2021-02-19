@@ -3,8 +3,6 @@ import {NextApiRequest, NextApiResponse} from "next"
 
 const indexApi = async (request: NextApiRequest, response: NextApiResponse) => {
     const { method } = request
-    console.log(method)
-    console.log(request.body)
     if(method != 'POST'){
         response.setHeader('Allow', ['POST'])
         return response.status(405).end(`Method ${method} Not Allowed`)

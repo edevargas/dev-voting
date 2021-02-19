@@ -1,7 +1,8 @@
 import users from './data/users'
 
 class UsersDB {
-    constructor() {}
+    constructor() {
+    }
 
     async getAll(): Promise<TUser[]> {
         const asArray = Object.values(users)
@@ -20,8 +21,18 @@ class UsersDB {
     }
 
     async login(username: string, password: string): Promise<TUser | null> {
-        const userId = (Object.keys(users) as Array<TUserId>).find(id => users[id].username === username && users[id].password === password);
-        if(!userId){
+        const userId = (Object.keys(users) as Array<TUserId>).find(id => users[id].username === username && users[id].password === password)
+        if (!userId) {
+            return null
+        }
+        const entry = users[userId]
+        await randomDelay()
+        return entry
+    }
+
+    async getByUsername(username: string): Promise<TUser | null> {
+        const userId = (Object.keys(users) as Array<TUserId>).find(id => users[id].username === username)
+        if (!userId) {
             return null
         }
         const entry = users[userId]
@@ -29,6 +40,7 @@ class UsersDB {
         return entry
     }
 }
+
 
 const randomDelay = () =>
     new Promise((resolve) => {

@@ -11,8 +11,8 @@ const MessageBar = () => {
                 <RightText>
                     You have to be logged in to vote a max of 3 times per candidate.
                 </RightText>
-                <span>X</span>
             </BarContent>
+            <span>X</span>
         </Container>
     );
 };

@@ -15,6 +15,8 @@ import ThumbDownIcon from '@material-ui/icons/ThumbDown';
 import CustomSnackbar from "@components/layouts/Snackbar";
 import useCardState from "@components/Home/Card/state";
 import Link from "next/link";
+import {LogInOutButton} from "@components/layouts/Header/styles";
+import {Button} from "@material-ui/core";
 
 const Card: React.FC<TPerson> = ({
                                      name,
@@ -42,6 +44,13 @@ const Card: React.FC<TPerson> = ({
         onVoteAgain,
         onVote
     } = useCardState({id, thumbUp, thumbDown})
+
+    const ButtonRedirect = React.forwardRef(function CustomComponent(props, ref) {
+        return (
+            <LinkMore/>
+        )
+    })
+
 
     const fillResumeThumb = () => (
         <ResumeThumb>
@@ -102,7 +111,7 @@ const Card: React.FC<TPerson> = ({
 
     const fillSeeMoreButton = () => (
         <Link href={`/candidate/${id}`}>
-            <LinkMore />
+            <ButtonRedirect />
         </Link>
     )
     return (

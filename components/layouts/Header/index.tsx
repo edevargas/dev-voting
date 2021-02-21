@@ -30,14 +30,22 @@ export default function Header() {
     }
     const fillLogButton = () => (
         <>{
-            !isAuthenticatedUser ? (
-                <Link href="/login">
-                    <LogInOutButton/>
-                </Link>) : (
+            !isAuthenticatedUser ? (<>
+                <Link href={"/login"} >
+                    <ButtonRedirect/>
+
+                </Link></>) : (
                 <Button onClick={handleLogout} color="inherit">Sign out</Button>
             )
         }</>)
 
+    const ButtonRedirect = React.forwardRef(function CustomComponent(props, ref) {
+        return (
+            <a>
+                <LogInOutButton>Sign In</LogInOutButton>
+            </a>
+        )
+    })
 
     return (
         <CustomToolbar>

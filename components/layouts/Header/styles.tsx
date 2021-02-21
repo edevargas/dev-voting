@@ -2,14 +2,13 @@ import React, {PropsWithChildren} from "react";
 import Button from "@material-ui/core/Button";
 
 export const LogInOutButton = (props: PropsWithChildren<any>) => (
-    <a {...props}>
-        <Button color="inherit">Sign in</Button>
+    <Button color="inherit" {...props}>
         <style jsx>{`
-        a {
+        Button {
              color: #333333;
         }
      `}</style>
-    </a>
+    </Button>
 )
 export const CustomToolbar = (props: PropsWithChildren<any>) => (
     <div className="tool-custom">

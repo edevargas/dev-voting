@@ -4,14 +4,14 @@ let theme = createMuiTheme({
     palette: {
         primary: {
             light: '#79e2e1',
-            main: '#66c2c1',
-            dark: '#4f9695',
+            main: '#2c9b96',
+            dark: '#2c9b96e0',
             contrastText: '#fff'
         },
         secondary: {
             light: '#a79e02',
-            main: '#827b00',
-            dark: '#524e01',
+            main: '#cf942f',
+            dark: '#cf942fe8',
             contrastText: '#fff',
         }
     },

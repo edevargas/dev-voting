@@ -17,10 +17,9 @@ export const CardContainer = (props: PropsWithChildren<any>) => (
             height: 400px;
             display: flex;
             flex-direction: column;
-            margin: 20px 10px;
+            margin: 10px 0;
             justify-content: flex-end;
             color: white;
-            position: relative;
             position: relative;
         }
      `}</style>
@@ -117,6 +116,7 @@ export const ThumbUp = (props: PropsWithChildren<any>) => (
              padding: ${props.per > 20 ? '10px 10px' : '10px 0'};
              display: flex;
              align-items: center;
+             margin-bottom: -6px;
         }
      `}</style>
     </div>
@@ -146,6 +146,7 @@ export const ThumbDown = (props: PropsWithChildren<any>) => (
               padding: 10px 0;
               display: flex;
               align-items: center;
+              margin-bottom: -6px;
         }
      `}</style>
     </div>

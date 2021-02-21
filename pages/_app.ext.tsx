@@ -4,6 +4,7 @@ import theme from '@styles/theme'
 import {ThemeProvider} from '@material-ui/core/styles'
 import CssBaseline from '@material-ui/core/CssBaseline';
 import React from "react";
+import '@styles/main.css'
 
 function MyApp({Component, pageProps}: AppProps) {
     return (

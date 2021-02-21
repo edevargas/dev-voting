@@ -1,21 +1,26 @@
-import {createMuiTheme} from '@material-ui/core/styles'
+import { createMuiTheme } from '@material-ui/core/styles'
 
 let theme = createMuiTheme({
     palette: {
         primary: {
-            light: '#ffffff',
-            main: '#ffffff',
-            dark: '#ffffff',
+            light: '#79e2e1',
+            main: '#66c2c1',
+            dark: '#4f9695',
             contrastText: '#fff'
         },
         secondary: {
-            light: '#ffffff',
-            main: 'blue',
-            dark: '#ffffff',
-            contrastText: '#000',
+            light: '#a79e02',
+            main: '#827b00',
+            dark: '#524e01',
+            contrastText: '#fff',
         }
     },
     typography: {
+        "fontFamily": `Lato`,
+        "fontSize": 14,
+        "fontWeightLight": 300,
+        "fontWeightRegular": 400,
+        "fontWeightMedium": 500,
         h5: {
             fontWeight: 500,
             fontSize: 26,
@@ -53,14 +58,6 @@ theme = {
                 boxShadow: 'none',
                 '&:active': {
                     boxShadow: 'none'
-                }
-            },
-            outlined: {
-                color: "#ffffff",
-                primary: {
-                    light: '#ffffff',
-                    main: '#ffffff',
-                    dark: '#ffffff'
                 }
             }
         },

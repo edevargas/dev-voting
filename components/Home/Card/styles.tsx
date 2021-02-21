@@ -197,8 +197,7 @@ export const ButtonThumbDown = (props: PropsWithChildren<any>) => (
 )
 export const ButtonVote = (props: PropsWithChildren<any>) => (
     <Button variant="contained"
-            color={props.thumbSelected  == 'UP' ? 'primary' : 'secondary'}
-            {...props}>
+            color={props.thumbSelected == 'UP' ? 'primary' : 'secondary'}>
         {props.children}
         <style jsx>{`
         .Button {

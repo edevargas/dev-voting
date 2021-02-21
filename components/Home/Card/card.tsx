@@ -8,15 +8,12 @@ import {
     ThumbDown,
     ThumbUp,
     Description, VoteZone, ButtonThumbUp, ButtonThumbDown, ButtonVote, WinnerZone,
-    Filter, CustomA, LinkMore, Percentage
+    Filter, LinkMore, Percentage
 } from "@components/Home/Card/styles";
 import ThumbUpIcon from '@material-ui/icons/ThumbUp';
 import ThumbDownIcon from '@material-ui/icons/ThumbDown';
 import CustomSnackbar from "@components/layouts/Snackbar";
 import useCardState from "@components/Home/Card/state";
-import Link from "next/link";
-import {LogInOutButton} from "@components/layouts/Header/styles";
-import {Button} from "@material-ui/core";
 
 const Card: React.FC<TPerson> = ({
                                      name,
@@ -45,21 +42,14 @@ const Card: React.FC<TPerson> = ({
         onVote
     } = useCardState({id, thumbUp, thumbDown})
 
-    const ButtonRedirect = React.forwardRef(function CustomComponent(props, ref) {
-        return (
-            <LinkMore/>
-        )
-    })
-
-
     const fillResumeThumb = () => (
         <ResumeThumb>
             <ThumbUp per={percentageUp}>
-                <ThumbUpIcon/>
+                {percentageUp > 20 && <ThumbUpIcon/>}
                 {percentageUp > 33.33 && <Percentage>{percentageUp.toFixed(2)} %</Percentage>}
             </ThumbUp>
             <ThumbDown per={percentageDown}>
-                <ThumbDownIcon/>
+                {percentageDown > 20 && <ThumbDownIcon/>}
                 {percentageDown > 33.33 && <Percentage>{percentageDown.toFixed(2)} %</Percentage>}
             </ThumbDown>
         </ResumeThumb>
@@ -82,7 +72,7 @@ const Card: React.FC<TPerson> = ({
             <ButtonThumbDown onClick={onClickThumbDown}>
                 <ThumbDownIcon/>
             </ButtonThumbDown>}
-            {thumbSelected != 'VOTED' && <ButtonVote disabled={!thumbSelected} onClick={onVote}>VOTE</ButtonVote>}
+            {thumbSelected != 'VOTED' && <ButtonVote thumbSelected={thumbSelected} disabled={!thumbSelected} onClick={onVote}>VOTE</ButtonVote>}
             {thumbSelected === 'VOTED' && votesUserCounter < 3  &&
             <ButtonVote onClick={onVoteAgain}>VOTE AGAIN</ButtonVote>}
 
@@ -109,20 +99,14 @@ const Card: React.FC<TPerson> = ({
             handleClose={() => setOpenSnackbar(false)}/>
     )
 
-    const fillSeeMoreButton = () => (
-        <Link href={`/candidate/${id}`}>
-            <ButtonRedirect />
-        </Link>
-    )
     return (
         <CardContainer image={image}>
             <Filter/>
             <CardBody>
                 {fillWinner()}
                 {fillCardDescription()}
-
             </CardBody>
-            {fillSeeMoreButton()}
+            <LinkMore  href={`/candidate/${id}`}>See more</LinkMore>
             {fillResumeThumb()}
             {fillSnackbar()}
         </CardContainer>

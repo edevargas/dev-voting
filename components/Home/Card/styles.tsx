@@ -2,6 +2,7 @@ import React, {PropsWithChildren} from "react";
 import {Button} from "@material-ui/core";
 import Link from "next/link";
 
+
 export const CardContainer = (props: PropsWithChildren<any>) => (
     <div>
         {props.children}
@@ -19,6 +20,8 @@ export const CardContainer = (props: PropsWithChildren<any>) => (
             margin: 20px 10px;
             justify-content: flex-end;
             color: white;
+            position: relative;
+            position: relative;
         }
      `}</style>
     </div>
@@ -41,9 +44,10 @@ export const Filter = (props: PropsWithChildren<any>) => (
         <style jsx>{`
         div {
              width: 350px;
-            height: 400px;
-            background: #00000096;
+             height: 400px;
+             background: #00000096;
              position: absolute;
+             top: 0;
         }
      `}</style>
     </div>
@@ -110,7 +114,7 @@ export const ThumbUp = (props: PropsWithChildren<any>) => (
         div {
              background: #2c9b96e0;
              width: ${props.per}%;
-             padding: 10px 10px;
+             padding: ${props.per > 20 ? '10px 10px' : '10px 0'};
              display: flex;
              align-items: center;
         }
@@ -191,7 +195,9 @@ export const ButtonThumbDown = (props: PropsWithChildren<any>) => (
     </div>
 )
 export const ButtonVote = (props: PropsWithChildren<any>) => (
-    <Button variant="contained" color="primary" {...props}>
+    <Button variant="contained"
+            color={props.thumbSelected  == 'UP' ? 'primary' : 'secondary'}
+            {...props}>
         {props.children}
         <style jsx>{`
         .Button {
@@ -224,14 +230,18 @@ export const CustomA = (props: PropsWithChildren<any>) => (
     </a>
 )
 export const LinkMore = (props: PropsWithChildren<any>) => (
-    <a {...props}>
-        <Button color="inherit">See more</Button>
-        <style jsx>{`
+    <Link href={props.href}>
+        <a>
+            <Button color="inherit">{props.children}</Button>
+            <style jsx>{`
         a {
              color: white;
              text-align: right;
+             text-decoration: none;
         }
      `}</style>
-    </a>
+        </a>
+    </Link>
+
 )
 

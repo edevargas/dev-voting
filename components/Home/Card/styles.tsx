@@ -200,7 +200,8 @@ export const ButtonThumbDown = (props: PropsWithChildren<any>) => (
 export const ButtonVote = (props: PropsWithChildren<any>) => (
     <Button variant={props.variant}
             color={props.color? props.color : 'default'}
-            className={props.disabled ? 'disabled' : ''}>
+            className={props.disabled ? 'disabled' : ''}
+            onClick={props.onClick}>
         {props.children}
         <style jsx>{`
         Button {

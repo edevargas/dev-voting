@@ -24,9 +24,10 @@ export const BarContent = (props: PropsWithChildren<any>) => (
         <style jsx>{`
         div {
             display: flex;
-            justify-content: space-between;
             flex-wrap: wrap;
             align-items: center;
+            width: 90%;
+            min-width: 250px;
         }
      `}</style>
     </div>
@@ -56,7 +57,7 @@ export const RightText = (props: PropsWithChildren<any>) => (
             font-size: 0.9em;
             padding: 0 10px;
             width: 70%;
-            margin: 0;
+            margin: 0 0 0 20px;
            
         }
      `}</style>

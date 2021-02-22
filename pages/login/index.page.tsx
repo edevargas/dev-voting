@@ -1,8 +1,9 @@
 import React from 'react'
 import CssBaseline from '@material-ui/core/CssBaseline'
-import { LoginContainer, PaperContainer} from './styles'
+import {FormContent, LoginContainer} from './styles'
 import {LoginForm} from '@components/LoginForm'
 import {useLoginState} from "./state";
+import Paper from '@material-ui/core/Paper';
 
 const Login: React.FC = () => {
     const {loading, error, handleSubmit} = useLoginState();
@@ -10,9 +11,12 @@ const Login: React.FC = () => {
     return (
         <LoginContainer>
             <CssBaseline/>
-            <PaperContainer>
-                <LoginForm onSubmit={handleSubmit} loading={loading} error={error}/>
-            </PaperContainer>
+            <Paper>
+                <FormContent>
+                    <LoginForm onSubmit={handleSubmit} loading={loading} error={error}/>
+                </FormContent>
+            </Paper>
+
         </LoginContainer>
     )
 }

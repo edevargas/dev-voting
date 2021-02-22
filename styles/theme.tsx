@@ -59,7 +59,12 @@ theme = {
                 '&:active': {
                     boxShadow: 'none'
                 }
+            },
+            outlined: {
+                color: '#ffffffa6',
+                border: '1px solid #ffffffa6'
             }
+
         },
         MuiTabs: {
             root: {

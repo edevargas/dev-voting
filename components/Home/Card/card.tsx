@@ -14,6 +14,7 @@ import ThumbUpIcon from '@material-ui/icons/ThumbUp';
 import ThumbDownIcon from '@material-ui/icons/ThumbDown';
 import CustomSnackbar from "@components/layouts/Snackbar";
 import useCardState from "@components/Home/Card/state";
+import {breakpoints} from "@material-ui/system";
 
 const Card: React.FC<TPerson> = ({
                                      name,
@@ -72,12 +73,31 @@ const Card: React.FC<TPerson> = ({
             <ButtonThumbDown onClick={onClickThumbDown}>
                 <ThumbDownIcon/>
             </ButtonThumbDown>}
-            {thumbSelected != 'VOTED' && <ButtonVote thumbSelected={thumbSelected} disabled={!thumbSelected} onClick={onVote}>VOTE</ButtonVote>}
+            {thumbSelected != 'VOTED' && <ButtonVote
+                thumbSelected={thumbSelected}
+                disabled={!thumbSelected}
+                color={getVoteButtonColor()}
+                variant={thumbSelected ? 'contained' : 'outlined' }
+                onClick={onVote}>VOTE</ButtonVote>}
             {thumbSelected === 'VOTED' && votesUserCounter < 3  &&
             <ButtonVote onClick={onVoteAgain}>VOTE AGAIN</ButtonVote>}
 
         </VoteZone>
     )
+    const getVoteButtonColor = () => {
+        switch (thumbSelected) {
+            case 'UP':
+                return 'primary'
+            break
+            case 'DOWN':
+                return 'secondary'
+            break
+            default:
+                return null
+            break
+        }
+
+    }
 
     const fillWinner = () => (
         <WinnerZone>

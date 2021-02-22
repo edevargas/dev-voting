@@ -4,3 +4,11 @@
     font-family: Lato;
     src: url("/fonts/Lato-Regular.ttf");
 }
+strong {
+    font-size: 2em;
+}
+@media (max-width: 680px) {
+    strong {
+        font-size: 1em;
+    }
+}

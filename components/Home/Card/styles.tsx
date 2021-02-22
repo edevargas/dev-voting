@@ -117,6 +117,7 @@ export const ThumbUp = (props: PropsWithChildren<any>) => (
              display: flex;
              align-items: center;
              margin-bottom: -6px;
+             height: 100%;
         }
      `}</style>
     </div>
@@ -147,6 +148,7 @@ export const ThumbDown = (props: PropsWithChildren<any>) => (
               display: flex;
               align-items: center;
               margin-bottom: -6px;
+              height: 100%;
         }
      `}</style>
     </div>

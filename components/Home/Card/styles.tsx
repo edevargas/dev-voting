@@ -73,7 +73,7 @@ export const Name = (props: PropsWithChildren<any>) => (
         h2 {
             font-size: 1.7em;
             margin-top: 0;
-            margin-left: 10px;
+            margin-left: 0px;
         }
      `}</style>
     </h2>
@@ -84,7 +84,7 @@ export const Description = (props: PropsWithChildren<any>) => (
         <style jsx>{`
         div {
              font-size: 0.8em;
-             margin-bottom: 10px;
+             margin-bottom: 30px;
         }
      `}</style>
     </div>

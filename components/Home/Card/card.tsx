@@ -14,7 +14,6 @@ import ThumbUpIcon from '@material-ui/icons/ThumbUp';
 import ThumbDownIcon from '@material-ui/icons/ThumbDown';
 import CustomSnackbar from "@components/layouts/Snackbar";
 import useCardState from "@components/Home/Card/state";
-import {breakpoints} from "@material-ui/system";
 
 const Card: React.FC<TPerson> = ({
                                      name,

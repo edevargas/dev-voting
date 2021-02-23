@@ -68,9 +68,16 @@ type TSessionState = {
     loading: boolean,
     error: string | null
 }
+type TPeopleState = {
+    people: TPerson[] | [],
+    selectedPerson: TPerson | null,
+    loading: boolean,
+    error: string | null
+}
 
 type TState = {
-    session: TSessionState
+    session: TSessionState,
+    people: TPeopleState
 }
 type TStore = {
     state: TState,

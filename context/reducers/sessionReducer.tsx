@@ -4,16 +4,7 @@ import {
     SESSION_LOGOUT,
 } from "../types/sessionTypes";
 
-export const initialState: TState = {
-    session: {
-        isAuth: false,
-        user: null,
-        loading: false,
-        error: null
-    }
-}
-
-export const sessionReducer = (state: TState, action: TAction) => {
+export const sessionReducer = (state: TSessionState, action: TAction) => {
     switch (action.type) {
         case SESSION_LOADING:
             return {...state, loading: true, error: null}

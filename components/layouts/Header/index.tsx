@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import Typography from '@material-ui/core/Typography';
 import {CustomToolbar, LoginButton} from "@components/layouts/Header/styles";
 import Button from "@material-ui/core/Button";

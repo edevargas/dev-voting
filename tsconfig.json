@@ -5,7 +5,8 @@
             "@people": ["database/people.ts"],
             "@users": ["database/users.ts"],
             "@components/*": ["components/*"],
-            "@styles/*": ["styles/*"]
+            "@styles/*": ["styles/*"],
+            "@context/*": ["context/*"]
         },
         "target": "es6",
         "lib": ["es6","dom", "dom.iterable", "esnext"],

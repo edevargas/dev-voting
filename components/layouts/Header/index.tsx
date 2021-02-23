@@ -3,32 +3,25 @@ import Typography from '@material-ui/core/Typography';
 import {CustomToolbar, LoginButton} from "@components/layouts/Header/styles";
 import Button from "@material-ui/core/Button";
 import {useRouter} from "next/router";
+import {useStore} from "@context/storeContext";
+import {useSessionActions} from "../../../actions/sessionsActions";
 
 export default function Header() {
-    const [isAuthenticatedUser, setAuthenticatedUser] = useState(false)
     const router = useRouter()
-
-    useEffect(() => {
-        checkLogin()
-    }, [])
-
-    const checkLogin = () => {
-        const user = localStorage.getItem('user')
-        if (user) {
-            setAuthenticatedUser(true)
-        } else {
-            setAuthenticatedUser(false)
-        }
-    }
+    const {
+        state: {session: {isAuth}},
+        dispatch
+    } = useStore()
+    const {logout} = useSessionActions(dispatch)
 
     const handleLogout = async (e: any) => {
         e.preventDefault()
-        await localStorage.removeItem('user')
+        logout()
         router.replace('/login')
     }
     const fillLogButton = () => (
         <>{
-            !isAuthenticatedUser ? (
+            !isAuth ? (
                 <LoginButton href={"/login"}>
                     Sign In
                 </LoginButton>) : (

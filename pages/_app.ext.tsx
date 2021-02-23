@@ -5,17 +5,19 @@ import {ThemeProvider} from '@material-ui/core/styles'
 import CssBaseline from '@material-ui/core/CssBaseline';
 import React from "react";
 import '@styles/main.css'
+import {StoreProvider} from "@context/storeContext";
 
 function MyApp({Component, pageProps}: AppProps) {
     return (
-
-        <ThemeProvider theme={theme}>
-            {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
-            <CssBaseline/>
-            <Layout>
-                <Component {...pageProps} />
-            </Layout>
-        </ThemeProvider>
+        <StoreProvider>
+            <ThemeProvider theme={theme}>
+                {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
+                <CssBaseline/>
+                <Layout>
+                    <Component {...pageProps} />
+                </Layout>
+            </ThemeProvider>
+        </StoreProvider>
 
 
     )

@@ -56,3 +56,23 @@ type TError = {
     message: string
 }
 type Nullable<T> = T | null
+
+type TAction = {
+    type: string,
+    payload?: any
+}
+
+type TSessionState = {
+    isAuth: boolean,
+    user: TUser | null,
+    loading: boolean,
+    error: string | null
+}
+
+type TState = {
+    session: TSessionState
+}
+type TStore = {
+    state: TState,
+    dispatch:  React.Dispatch<any>
+}

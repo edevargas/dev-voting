@@ -79,7 +79,7 @@ const Card: React.FC<TPerson> = ({
                 variant={thumbSelected ? 'contained' : 'outlined' }
                 onClick={onVote}>VOTE</ButtonVote>}
             {thumbSelected === 'VOTED' && votesUserCounter < 3  &&
-            <ButtonVote onClick={onVoteAgain}>VOTE AGAIN</ButtonVote>}
+            <ButtonVote variant="outlined" color="primary" onClick={onVoteAgain}>VOTE AGAIN</ButtonVote>}
 
         </VoteZone>
     )

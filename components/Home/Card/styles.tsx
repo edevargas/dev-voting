@@ -201,7 +201,8 @@ export const ButtonVote = (props: PropsWithChildren<any>) => (
     <Button variant={props.variant}
             color={props.color? props.color : 'default'}
             className={props.disabled ? 'disabled' : ''}
-            onClick={props.onClick}>
+            onClick={props.onClick}
+            disabled={props.disabled}>
         {props.children}
         <style jsx>{`
         Button {
